@@ -1,0 +1,99 @@
+-- module script
+-- this script should be inside of ice manager script btw
+
+local IceConfig = {
+
+	Ice1 = {
+		riseHeights = {
+			Vector3.new(119, 13.133, 190),
+			Vector3.new(119, 16.333, 190),
+			Vector3.new(119, 21.133, 190),
+			Vector3.new(119, 24.533, 190),
+		},
+		downSize = Vector3.new(119, 6.133, 190),
+	},
+	Ice2 = {
+		riseHeights = {
+			Vector3.new(119, 13.3, 190),
+			Vector3.new(119, 17.7, 190),
+			Vector3.new(119, 19.9, 190),
+			Vector3.new(119, 25.5, 190),
+		},
+		downSize = Vector3.new(119, 4.1, 190),
+	},
+	Ice3 = {
+		riseHeights = {
+			Vector3.new(119, 13.533, 190),
+			Vector3.new(119, 21.933, 190),
+			Vector3.new(119, 31.533, 190),
+			Vector3.new(119, 40.533, 190),
+		},
+		downSize = Vector3.new(119, 5.133, 190),
+	},
+	Ice4 = {
+		riseHeights = {
+			Vector3.new(119, 17.407, 190),
+			Vector3.new(119, 28.407, 190),
+			Vector3.new(119, 36.407, 190),
+			Vector3.new(119, 42.007, 190),
+		},
+		downSize = Vector3.new(119, 5.607, 190),
+	},
+	Ice5 = {
+		riseHeights = {
+			Vector3.new(119, 17.407, 190),
+			Vector3.new(119, 24.407, 190),
+			Vector3.new(119, 36.607, 190),
+			Vector3.new(119, 47.807, 190),
+		},
+		downSize = Vector3.new(119, 6.207, 190),
+	},
+	Ice6 = {
+		riseHeights = {
+			Vector3.new(119, 21.488, 190),
+			Vector3.new(119, 30.088, 190),
+			Vector3.new(119, 44.288, 190),
+			Vector3.new(119, 47.807, 190),
+		},
+		downSize = Vector3.new(119, 5.888, 190),
+	},
+	Ice7 = {
+		riseHeights = {
+			Vector3.new(119, 22.043, 190),
+			Vector3.new(119, 34.443, 190),
+			Vector3.new(119, 46.843, 190),
+			Vector3.new(119, 63.043, 190),
+		},
+		downSize = Vector3.new(119, 5.243, 190),
+	},
+	Ice8 = {
+		riseHeights = {
+			Vector3.new(119, 30.007, 190),
+			Vector3.new(119, 46.207, 190),
+			Vector3.new(119, 69.407, 190),
+			Vector3.new(119, 94.607, 190),
+		},
+		downSize = Vector3.new(119, 5.807, 190),
+	},
+	Ice9 = {
+		riseHeights = {
+			Vector3.new(119, 21.668, 190),
+			Vector3.new(119, 46.207, 190),
+			Vector3.new(119, 71.468, 190),
+			Vector3.new(119, 124.668, 190),
+		},
+		downSize = Vector3.new(119, 5.468, 190),
+	},
+	Ice10 = {
+		riseHeights = {
+			Vector3.new(119, 70.407, 190),
+			Vector3.new(119, 170.607, 190),
+			Vector3.new(119, 207.807, 190),
+			Vector3.new(119, 254.007, 190),
+		},
+		downSize = Vector3.new(119, 5.407, 190),
+	},
+
+}
+
+return IceConfig
