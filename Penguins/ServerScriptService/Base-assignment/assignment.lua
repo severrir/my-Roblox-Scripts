@@ -84,7 +84,7 @@ local function findReceiveCashPart(baseFolder: Instance, slotName: string, slotR
 	local normalizedSlot = normalizeName(slotName)
 	local slotDigits = slotName:match("%d+")
 
-	-- 1) Exact/normalized name match against slot container.
+	--  Exact/normalized name match against slot container.
 	for _, desc in ipairs(baseFolder:GetDescendants()) do
 		if desc:IsA("BasePart") and desc.Name == "ReceiveCash" then
 			local slotContainer = desc.Parent
@@ -101,7 +101,7 @@ local function findReceiveCashPart(baseFolder: Instance, slotName: string, slotR
 		end
 	end
 
-	-- 2) Fallback: nearest ReceiveCash to the prompt slot part.
+	-- nearest ReceiveCash to the prompt slot part.
 	if slotRef then
 		local nearest: BasePart? = nil
 		local nearestDist = math.huge
@@ -136,7 +136,7 @@ local function getOrCreateRateLabel(receiveCashPart: BasePart): TextLabel
 	billboard.Adornee = receiveCashPart
 	billboard.Enabled = true
 
-	-- Prefer using PadGui from ReplicatedStorage.MonePSecGui (Folder template support).
+	-- Prefer using PadGui
 	local existingPadGui = billboard:FindFirstChild("PadGui")
 	if existingPadGui and existingPadGui:IsA("TextLabel") then
 		return existingPadGui
@@ -353,7 +353,7 @@ local function getGroundY(slot: BasePart, penguinModel: Model): number
 	end
 	rayParams.FilterDescendantsInstances = excludes
 
-	-- Cast from just above this slot and only a short distance down to avoid cross-floor hits.
+	-- Cast from just above this slot 
 	local origin = slot.Position + Vector3.new(0, (slot.Size.Y * 0.5) + GROUND_RAY_ABOVE_SLOT, 0)
 	local direction = Vector3.new(0, -(slot.Size.Y + GROUND_RAY_DEPTH_BELOW_SLOT), 0)
 	local hit = workspace:Raycast(origin, direction, rayParams)
@@ -362,7 +362,7 @@ local function getGroundY(slot: BasePart, penguinModel: Model): number
 		return hit.Position.Y
 	end
 
-	-- fallback: top surface of slot
+	--top surface of slot
 	return slotTopY
 end
 
@@ -416,7 +416,6 @@ local function placePenguinOnSlot(slot: BasePart, penguinModel: Model)
 
 	local flatLook = getFlatLook(slot)
 
-	-- Preserve model's local structure by aligning based on a reference part (Torso/PrimaryPart),
 	-- not raw model pivot orientation.
 	local refToModel = placementPart.CFrame:ToObjectSpace(penguinModel:GetPivot())
 	local desiredRef = CFrame.lookAt(slot.Position, slot.Position + flatLook, Vector3.yAxis)
@@ -435,7 +434,6 @@ local function placePenguinOnSlot(slot: BasePart, penguinModel: Model)
 	penguinModel:PivotTo(penguinModel:GetPivot() + Vector3.new(0, yFix, 0))
 end
 
--- ensure single PenguinId IntValue in ReplicatedStorage
 local PenguinId = ReplicatedStorage:FindFirstChild("PenguinId")
 if not PenguinId then
 	PenguinId = Instance.new("IntValue")
@@ -443,7 +441,6 @@ if not PenguinId then
 	PenguinId.Parent = ReplicatedStorage
 end
 
--- ensure single PlotHolders folder in ReplicatedStorage
 local PlotHolders = ReplicatedStorage:FindFirstChild("PlotHolders")
 if not PlotHolders then
 	PlotHolders = Instance.new("Folder")
@@ -528,25 +525,25 @@ for _, base in pairs(Bases:GetChildren()) do
 				return
 			end
 
-			-- Anchor all parts before final placement for stable base pose.
+			-- Anchor all parts before final placement
 			for _, desc in ipairs(penguinModel:GetDescendants()) do
 				if desc:IsA("BasePart") then
 					desc.Anchored = true
 				end
 			end
 
-			-- move penguin to slot, upright and with corrected floor offset
+			-- move penguin to slot
 			placePenguinOnSlot(capturedSlot, penguinModel)
 			torso.Anchored = true
 
-			-- add to inventory properly
+			-- add to inventory
 			local penguinData = findPenguinDataByName(penguinModel.Name)
 
 			if penguinData then
 				PenguinData.PlayerBaseInventory:AddItem(player, penguinData)
 			end
 
-			-- Mark ownership/rate on the model so base money pads can track income reliably.
+			-- Mark ownership/rate
 			local ownerUserId = penguinModel:FindFirstChild("OwnerUserId")
 			if not ownerUserId then
 				ownerUserId = Instance.new("IntValue")
@@ -653,7 +650,6 @@ Players.PlayerAdded:Connect(function(player)
 
 	sign.PlayerDisplay.SurfaceGui.PlayerPfp.Image = PlayerIcon -- set the player's image
 	sign.PlayerDisplay.SurfaceGui.Enabled = true
-	--updatePrompts(player)
 
 end)
 
@@ -776,4 +772,5 @@ for _, baseFolder in ipairs(Bases:GetChildren()) do
 			end
 		end
 	end
+
 end
