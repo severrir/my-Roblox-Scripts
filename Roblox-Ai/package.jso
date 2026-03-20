@@ -1,0 +1,12 @@
+{
+  "name": "roblox-ai",
+  "version": "1.0.0",
+  "main": "ClaudeApiGraber.js",
+  "scripts": {
+    "start": "node ClaudeApiGraber.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "dotenv": "^16.0.0"
+  }
+}
