@@ -1,9 +1,11 @@
+require('dotenv').config({ path: './Api.env' }); 
 const express = require('express');
 const app = express();
 app.use(express.json());
 
 app.post('/chat', async (req, res) => {
   const { message } = req.body;
+
   const response = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: {
@@ -17,8 +19,9 @@ app.post('/chat', async (req, res) => {
       messages: [{ role: 'user', content: message }]
     })
   });
+
   const data = await response.json();
   res.json({ reply: data.content[0].text });
 });
 
-app.listen(3000);
+app.listen(3000, () => console.log('Server running on port 3000'));
