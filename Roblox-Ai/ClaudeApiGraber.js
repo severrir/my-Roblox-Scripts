@@ -1,4 +1,4 @@
-require('dotenv').config({ path: './Api.env' }); 
+require('dotenv').config({ path: './Api.env' });
 const express = require('express');
 const app = express();
 app.use(express.json());
@@ -16,6 +16,7 @@ app.post('/chat', async (req, res) => {
     body: JSON.stringify({
       model: 'claude-sonnet-4-6',
       max_tokens: 300,
+      system: "You are a helpful AI assistant inside a Roblox game. You are NOT ChatGPT, you are NOT Grok. You are a Roblox game assistant. Keep answers short and fun for players.",
       messages: [{ role: 'user', content: message }]
     })
   });
