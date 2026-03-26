@@ -1,3 +1,4 @@
+-- module, this should be inside server handle file
 local Functions = {
 
 	["FireMove"] = function(Player, ...)
