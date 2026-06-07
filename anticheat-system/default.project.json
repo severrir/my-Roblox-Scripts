@@ -1,0 +1,39 @@
+{
+  "name": "AnticheatSystem",
+  "tree": {
+    "$className": "DataModel",
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "AnticheatService": {
+        "$path": "src/ServerScriptService/AnticheatService.server.lua"
+      }
+    },
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "Shared": {
+        "$className": "Folder",
+        "Knit": {
+          "$path": "src/ReplicatedStorage/Shared/Knit.lua"
+        },
+        "Anticheat": {
+          "$className": "Folder",
+          "Config": {
+            "$path": "src/ReplicatedStorage/Shared/Anticheat/Config.lua"
+          },
+          "FlagLogger": {
+            "$path": "src/ReplicatedStorage/Shared/Anticheat/FlagLogger.lua"
+          },
+          "SpeedCheck": {
+            "$path": "src/ReplicatedStorage/Shared/Anticheat/SpeedCheck.lua"
+          },
+          "TeleportCheck": {
+            "$path": "src/ReplicatedStorage/Shared/Anticheat/TeleportCheck.lua"
+          },
+          "ScoreCheck": {
+            "$path": "src/ReplicatedStorage/Shared/Anticheat/ScoreCheck.lua"
+          }
+        }
+      }
+    }
+  }
+}
